@@ -1,0 +1,69 @@
+﻿body {
+}
+
+
+#imagen {
+    display:none;
+}
+
+.input-label{
+    background: #73909F;
+    color: #fff;
+    padding:5px;
+    transition: transform 0.3s ease;
+}
+
+.input-label:hover{
+    background: #26a69a;
+    cursor: pointer;
+}
+
+/************* Estilos para la contraseña ****************************/
+
+.show-eye i{
+    position:absolute;
+    transform: translate(-50%);
+    left: 90%;
+    margin-top: -8.0%;
+    cursor:pointer;
+    display: none;
+}
+
+.show-eye-slash i {
+    position: absolute;
+    transform: translate(-50%);
+    left: 90%;
+    margin-top: -8.0%;
+    cursor: pointer;
+    display: none;
+}
+
+input:valid ~ .show-eye i{
+    display: block;
+}
+
+.show-eye-confir i {
+    position: absolute;
+    transform: translate(-50%);
+    left: 90%;
+    margin-top: -8.0%;
+    cursor: pointer;
+    display: none;
+}
+
+.show-eye-slash-confir i {
+    position: absolute;
+    transform: translate(-50%);
+    left: 90%;
+    margin-top: -8.0%;
+    cursor: pointer;
+    display: none;
+}
+
+input:valid ~ .show-eye-confir i {
+    display: block;
+}
+
+.OneItem option:first-child{
+    display: none;
+}

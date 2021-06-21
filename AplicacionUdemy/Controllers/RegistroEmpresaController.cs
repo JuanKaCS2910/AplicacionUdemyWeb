@@ -6,12 +6,14 @@ using System.Web.Mvc;
 
 namespace AplicacionUdemy.Controllers
 {
-    public class HomeController : Controller
+    public class RegistroEmpresaController : Controller
     {
-        public ActionResult Index()
+        // GET: RegistroEmpresa
+        public ActionResult RegistroEmpresa()
         {
             return View();
         }
 
+        
     }
 }

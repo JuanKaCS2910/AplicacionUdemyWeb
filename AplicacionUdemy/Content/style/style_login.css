@@ -1,0 +1,155 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+    background-color: #cccccc;
+    background: url(../img/img_logo/fondo.jpg) no-repeat center center fixed;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+.login {
+    background: #fff;
+    width: 800px;
+    max-width: 350px;
+    padding: 25px 40px 10px 40px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0,1);
+    position: relative;
+}
+
+.login .text {
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center
+}
+
+
+.login form {
+    padding: 40px 0 0 0 0;
+}
+
+.login form .form-row {
+    display: flex;
+    margin: 10px 0;
+}
+
+.logo {
+    padding: 0px 20px 20px 0px;
+    max-width: 50%;
+}
+
+.text {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 28px
+}
+
+form .form-row .input-data {
+    width: 100%;
+    height: 40px;
+    margin: 0 20px;
+    position: relative;
+}
+
+
+.input-data input {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 17px;
+    border-bottom: 2px solid rgba(0,0,0,0.12);
+}
+
+.input-data label {
+    position: absolute;
+    bottom: 10px;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+
+.input-data input:focus ~ label,
+.input-data input:valid ~ label {
+    transform: translateY(-20px);
+    color: #3498db;
+    font-size: 14px;
+}
+
+.input-data .underline {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+}
+
+    .input-data .underline:before,
+    .input-data .underline:after {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 100%;
+        background: #3498db;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+
+.input-data input:focus ~ .underline:before,
+.input-data input:valid ~ .underline:before {
+    transform: scale(1);
+}
+
+
+.show-eye i {
+    position: absolute;
+    transform: translate(-50%);
+    left: 90%;
+    margin-top: -14.0%;
+    cursor: pointer;
+    display: none;
+}
+
+.show-eye-slash i {
+    position: absolute;
+    transform: translate(-50%);
+    left: 90%;
+    margin-top: -14.0%;
+    cursor: pointer;
+    display: none;
+}
+
+input:valid ~ .show-eye i {
+    display: block;
+}
+
+button[type="button"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 260px;
+    background: #b80f22;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+    button[type="button"]:hover {
+        cursor: pointer;
+        background: #ffc107;
+        color: #000;
+    }
