@@ -332,6 +332,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\app\registroempresa.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -349,7 +350,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\plugins\Validarcontraseñas\js\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\App\" />
     <Folder Include="Scripts\JS\" />
   </ItemGroup>
   <ItemGroup>
