@@ -125,6 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\modelList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -349,7 +350,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\plugins\Validarcontraseñas\js\" />
-    <Folder Include="Models\" />
     <Folder Include="Scripts\JS\" />
   </ItemGroup>
   <ItemGroup>
@@ -359,6 +359,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
     <Content Include="Views\RegistroEmpresa\RegistroEmpresa.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AplicacionUdemy.Business\AplicacionUdemy.Business.csproj">
+      <Project>{5cd9fc23-ceeb-4454-b144-653581d29f21}</Project>
+      <Name>AplicacionUdemy.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AplicacionUdemy.Clients\AplicacionUdemy.Clients.csproj">
+      <Project>{768c9d46-f156-4e35-b83a-2dc28fd9db42}</Project>
+      <Name>AplicacionUdemy.Clients</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AplicacionUdemy.Entity\AplicacionUdemy.Entity.csproj">
+      <Project>{53f6c710-46af-4a9c-868d-ce6ea1e02385}</Project>
+      <Name>AplicacionUdemy.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
