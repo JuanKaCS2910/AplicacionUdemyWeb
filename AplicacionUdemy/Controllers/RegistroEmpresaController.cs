@@ -13,11 +13,13 @@ namespace AplicacionUdemy.Controllers
     {
         private modelList model;
         private PaisBusiness _paisBusiness;
+        private MonedaBusiness _monedaBusiness;
 
         public RegistroEmpresaController()
         {
             model = new modelList();
             _paisBusiness = new PaisBusiness();
+            _monedaBusiness = new MonedaBusiness();
         }
 
         // GET: RegistroEmpresa
@@ -25,6 +27,7 @@ namespace AplicacionUdemy.Controllers
         {
             string token = "";
             model.listPais = _paisBusiness.ListarPaises(paramss,token);
+            model.listMoneda = _monedaBusiness.ListarMonedas(paramss, token);
             return View(model);
         }
 

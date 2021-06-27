@@ -69,7 +69,10 @@
                     <div class="col-md-2">
                         <span><label><b>Moneda: </b></label></span>
                         <select class="form-control" id="slmoneda">
-                            <option value="value">text</option>
+                            @foreach (var item in Model.listMoneda)
+                            {
+                                <option value="@item.idMoneda">@item.nombre</option>
+                            }
                         </select>
                         <br />
                     </div>

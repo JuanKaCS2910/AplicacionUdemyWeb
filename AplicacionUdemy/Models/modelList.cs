@@ -10,6 +10,7 @@ namespace AplicacionUdemy.Models
     {
 
         public List<ResponsePais> listPais { get; set; }
+        public List<ResponseMoneda> listMoneda { get; set; }
 
     }
 }
