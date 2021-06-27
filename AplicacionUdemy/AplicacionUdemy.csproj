@@ -350,6 +350,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\plugins\Validarcontraseñas\js\" />
+    <Folder Include="ScriptBD\" />
     <Folder Include="Scripts\JS\" />
   </ItemGroup>
   <ItemGroup>

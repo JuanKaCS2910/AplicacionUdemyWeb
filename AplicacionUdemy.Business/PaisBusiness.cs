@@ -23,7 +23,7 @@ namespace AplicacionUdemy.Business
         {
             try
             {
-                return JsonConvert.DeserializeObject<List<ResponsePais>>(_client.Post<RegistroEmpresaEntity>("RegistroEmpresaController/listarPaises",_entidad, valor));
+                return JsonConvert.DeserializeObject<List<ResponsePais>>(_client.Post<RegistroEmpresaEntity>("RegistroEmpresa/listarPaises",_entidad, valor));
             }
             catch (Exception ex)
             {
