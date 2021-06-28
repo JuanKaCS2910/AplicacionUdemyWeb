@@ -108,13 +108,19 @@
                     <div class="col-md-2">
                         <span><label><b>Tipo Impuesto: </b></label></span>
                         <select class="form-control" id="sltipoimpuesto">
-                            <option value="value">text</option>
+                            @foreach (var item in Model.listImpuesto)
+                            {
+                                <option value="@item.idImpuesto">@item.nombre</option>
+                            }
                         </select>
                     </div>
                     <div class="col-md-2">
                         <span><label><b>Porcentaje: </b></label></span>
                         <select class="form-control" id="slporcentaje">
-                            <option value="value">text</option>
+                            @foreach (var item in Model.listPorcentaje)
+                            {
+                                <option value="@item.idPorcentaje">@item.nombre</option>
+                            }
                         </select>
                         <br />
                     </div>

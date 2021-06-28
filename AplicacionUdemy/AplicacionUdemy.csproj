@@ -333,6 +333,9 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="ScriptBD\Script_CreacionDB_Paises.sql" />
+    <Content Include="ScriptBD\Script_Creacion_Impuestos_Porcentajes.sql" />
+    <Content Include="ScriptBD\Script_Creacion_Monedas.sql" />
     <Content Include="Scripts\app\registroempresa.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -350,7 +353,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\plugins\Validarcontraseñas\js\" />
-    <Folder Include="ScriptBD\" />
     <Folder Include="Scripts\JS\" />
   </ItemGroup>
   <ItemGroup>
