@@ -1,4 +1,10 @@
-﻿
+﻿$(document).ready(function () {
+
+    document.getElementById("rdsi").checked = true;
+    $("#divvendeimpuestos").show();
+});
+
+
 /*Visualizar imagen*/
 $("#imagen").change(function () {
     let imagen = this.files[0];
@@ -21,4 +27,14 @@ $("#imagen").change(function () {
         })
 
     }
+});
+
+$("#rdsi").click(function () {
+    $("#divvendeimpuestos").show();
+    document.getElementById("rdno").checked = false;
+});
+
+$("#rdno").click(function () {
+    $("#divvendeimpuestos").hide();
+    document.getElementById("rdsi").checked = false;
 });
