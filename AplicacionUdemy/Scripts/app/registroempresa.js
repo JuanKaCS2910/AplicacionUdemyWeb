@@ -61,6 +61,15 @@ $("#btnsiguiente").click(function () {
         $("#msjemail").html("Debe ingresar un email válido").css("color", "red");
         $("#txtemail").css("border-color", "");
         $("#txtemail").focus();
+    } else {
+        var paramss = new Object();
+        paramss.razonsocial = razonsocial;
+        paramss.ruc = ruc;
+        paramss.email = email;
+
+        Post("RegistroEmpresa/validarRegistro", paramss).done(function (datos) {
+               
+        });
     }
 
 });

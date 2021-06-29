@@ -337,6 +337,7 @@
     <Content Include="ScriptBD\Script_Creacion_Impuestos_Porcentajes.sql" />
     <Content Include="ScriptBD\Script_Creacion_Monedas.sql" />
     <Content Include="Scripts\app\registroempresa.js" />
+    <Content Include="Scripts\js\global.js" />
     <Content Include="Scripts\js\validaciones.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
