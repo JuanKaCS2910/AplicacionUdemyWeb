@@ -337,6 +337,7 @@
     <Content Include="ScriptBD\Script_Creacion_Impuestos_Porcentajes.sql" />
     <Content Include="ScriptBD\Script_Creacion_Monedas.sql" />
     <Content Include="Scripts\app\registroempresa.js" />
+    <Content Include="Scripts\js\validaciones.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -353,7 +354,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\plugins\Validarcontraseñas\js\" />
-    <Folder Include="Scripts\JS\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -39,12 +39,14 @@
                     </div>
                     <div class="col-md-6">
                         <span><label><b>Razón Social: </b></label></span>
-                        <input type="text" class="form-control" id="txtrazonsocial" />
+                        <input type="text" class="form-control" id="txtrazonsocial" placeholder="Razón Social" />
+                        <span id="msjrazonsocial"></span>
                     </div>
 
                     <div class="col-md-3">
                         <span><label><b>RUC: </b></label></span>
-                        <input type="text" class="form-control" id="txtruc" />
+                        <input type="text" class="form-control" id="txtruc" placeholder="RUC" maxlength="11" required onkeypress="return solonumeros(event)" />
+                        <span id="msjruc"></span>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -53,7 +55,8 @@
                     </div>
                     <div class="col-md-4">
                         <span><label><b>Email: </b></label></span>
-                        <input type="text" class="form-control" id="txtemail" />
+                        <input type="text" class="form-control" id="txtemail" placeholder="Email" />
+                        <span id="msjemail"></span>
                     </div>
 
                     <div class="col-md-2">
@@ -82,7 +85,7 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-9">
                         <span><label><b>Dirección: </b></label></span>
-                        <input type="text" class="form-control" id="txtdireccion" />
+                        <input type="text" class="form-control" id="txtdireccion" placeholder="Dirección" />
                         <br />
                     </div>
                 </div>
@@ -195,4 +198,4 @@
 </html>
 
 <script type="text/javascript" src="~/Scripts/app/registroempresa.js"></script>
-
+<script type="text/javascript" src="~/Scripts/js/validaciones.js"></script>

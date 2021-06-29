@@ -29,6 +29,7 @@ $("#imagen").change(function () {
     }
 });
 
+//$("#rdsi").on("click",function(){});
 $("#rdsi").click(function () {
     $("#divvendeimpuestos").show();
     document.getElementById("rdno").checked = false;
@@ -37,4 +38,75 @@ $("#rdsi").click(function () {
 $("#rdno").click(function () {
     $("#divvendeimpuestos").hide();
     document.getElementById("rdsi").checked = false;
+});
+
+$("#btnsiguiente").click(function () {
+    let razonsocial = $("#txtrazonsocial").val();
+    let ruc = $("#txtruc").val();
+    let email = $("#txtemail").val();
+
+    if (razonsocial == "") {
+        $("#msjrazonsocial").html("* El campo razón social no debe estar vacio").css("color", "red");
+        $("#txtrazonsocial").css("border-color", "red");
+        $("#txtrazonsocial").focus();
+    } else if (ruc == "") {
+        $("#msjruc").html("* El campo ruc no debe estar vacio").css("color", "red");
+        $("#txtruc").css("border-color", "red");
+        $("#txtruc").focus();
+    } else if (email == "") {
+        $("#msjemail").html("* El campo email no debe estar vacio").css("color", "red");
+        $("#txtemail").css("border-color", "red");
+        $("#txtemail").focus();
+    } else if (!validaEmail(email)) {
+        $("#msjemail").html("Debe ingresar un email válido").css("color", "red");
+        $("#txtemail").css("border-color", "");
+        $("#txtemail").focus();
+    }
+
+});
+
+$("#txtrazonsocial").keyup(function () {
+    let razonsocial = $("#txtrazonsocial").val();
+
+    if (razonsocial == "") {
+        $("#msjrazonsocial").html("* El campo razón social no debe estar vacio").css("color", "red");
+        $("#txtrazonsocial").css("border-color", "red");
+        $("#txtrazonsocial").focus();
+    } else {
+        $("#msjrazonsocial").html("").css("color", "red");
+        $("#txtrazonsocial").css("border-color", "");
+    }
+});
+
+$("#txtruc").keyup(function () {
+    let ruc = $("#txtruc").val();
+
+    if (ruc == "") {
+        $("#msjruc").html("* El campo ruc no debe estar vacio").css("color", "red");
+        $("#txtruc").css("border-color", "red");
+        $("#txtruc").focus();
+    } else {
+        $("#msjruc").html("").css("color", "red");
+        $("#txtruc").css("border-color", "");
+    }
+});
+
+$("#txtemail").keyup(function () {
+    let email = $("#txtemail").val();
+
+    if (email == "") {
+        $("#msjemail").html("* El campo email no debe estar vacio").css("color", "red");
+        $("#txtemail").css("border-color", "red");
+        $("#txtemail").focus();
+    } else {
+        if (!validaEmail(email)) {
+            $("#msjemail").html("Debe ingresar un email válido").css("color", "red");
+            $("#txtemail").css("border-color", "");
+        }
+        else {
+            $("#msjemail").html("").css("color", "red");
+            $("#txtemail").css("border-color", "");
+        }
+        
+    }
 });
