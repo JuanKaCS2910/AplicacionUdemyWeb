@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmpresaBusiness.cs" />
     <Compile Include="PorcentajeBusiness.cs" />
     <Compile Include="ImpuestoBusiness.cs" />
     <Compile Include="MonedaBusiness.cs" />

@@ -16,6 +16,7 @@ namespace AplicacionUdemy.Controllers
         private MonedaBusiness _monedaBusiness;
         private ImpuestoBusiness _impuestoBusiness;
         private PorcentajeBusiness _porcentajeBusiness;
+        private EmpresaBusiness _empresaBusiness;
 
         public RegistroEmpresaController()
         {
@@ -24,19 +25,28 @@ namespace AplicacionUdemy.Controllers
             _monedaBusiness = new MonedaBusiness();
             _impuestoBusiness = new ImpuestoBusiness();
             _porcentajeBusiness = new PorcentajeBusiness();
+            _empresaBusiness = new EmpresaBusiness();
         }
 
         // GET: RegistroEmpresa
         public ActionResult RegistroEmpresa(RegistroEmpresaEntity paramss)
         {
             string token = "";
-            model.listPais = _paisBusiness.ListarPaises(paramss,token);
+            model.listPais = _paisBusiness.ListarPaises(paramss, token);
             model.listMoneda = _monedaBusiness.ListarMonedas(paramss, token);
             model.listImpuesto = _impuestoBusiness.ListaImpuesto(paramss, token);
             model.listPorcentaje = _porcentajeBusiness.ListaPorcentaje(paramss, token);
             return View(model);
         }
 
-        
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult validarRegistro(RegistroEmpresaEntity paramss)
+        {
+            var respuesta = _empresaBusiness.validarRegistro(paramss,"");
+            return Json(new { dt = respuesta });
+        }
+
+
     }
 }

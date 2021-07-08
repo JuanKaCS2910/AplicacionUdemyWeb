@@ -8,5 +8,9 @@ namespace AplicacionUdemy.Entity.Parametros
 {
     public class RegistroEmpresaEntity
     {
+        public string razonSocial { get; set; }
+        public string ruc { get; set; }
+        public string email { get; set; }
+
     }
 }

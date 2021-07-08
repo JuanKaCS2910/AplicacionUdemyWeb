@@ -63,12 +63,27 @@ $("#btnsiguiente").click(function () {
         $("#txtemail").focus();
     } else {
         var paramss = new Object();
-        paramss.razonsocial = razonsocial;
+        paramss.razonSocial = razonsocial;
         paramss.ruc = ruc;
         paramss.email = email;
 
         Post("RegistroEmpresa/validarRegistro", paramss).done(function (datos) {
-               
+            if (datos.dt.response == "Ok") {
+                $(".divregistroempresa").hide();
+                $(".divregistrousersuperadmin").show();
+            }
+            else {
+                //Visualización para mensaje de Error.
+                swal({
+                    position: "top-end",
+                    type: "error",
+                    title: datos.dt.response,
+                    text: 'Por favor valida el campo solicitado',
+                    showConfirmButton: true,
+                    timer: 60000,
+                    confirmButtonText: 'Cerrar'
+                })
+            }
         });
     }
 
