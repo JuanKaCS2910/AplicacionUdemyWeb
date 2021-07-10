@@ -339,6 +339,7 @@
     <Content Include="Scripts\app\registroempresa.js" />
     <Content Include="Scripts\js\global.js" />
     <Content Include="Scripts\js\validaciones.js" />
+    <Content Include="Scripts\js\validacionPassword.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

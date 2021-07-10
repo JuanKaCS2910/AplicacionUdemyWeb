@@ -20,12 +20,12 @@
 
 /************* Estilos para la contraseña ****************************/
 
-.show-eye i{
-    position:absolute;
+.show-eye i {
+    position: absolute;
     transform: translate(-50%);
     left: 90%;
     margin-top: -8.0%;
-    cursor:pointer;
+    cursor: pointer;
     display: none;
 }
 

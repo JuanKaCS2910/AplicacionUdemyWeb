@@ -14,12 +14,14 @@
 
     <!-- CSS -->
     <link href="~/Content/plugins/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/style/style_logo.css" rel="stylesheet" />
+    <link href="~/Content/style/style.css" rel="stylesheet" />
 
     <!-- JS -->
     <script src="~/Content/plugins/js/jquery-3.1.1.min.js"></script>
     <script src="~/Content/plugins/js/bootstrap.min.js"></script>
-    <script src="~/Content/plugins/sweetalert2/sweetalert2.all.js"></script> <!-- Visualización de Mensajes --> 
+    <script src="~/Content/plugins/sweetalert2/sweetalert2.all.js"></script> <!-- Visualización de Mensajes -->
     <script>
         var appURL = "@Url.Content("~/")";
     </script>
@@ -28,7 +30,7 @@
     <br /><br /><br />
     <div class="container">
         <div class="row">
-            <div class="divregistroempresa">
+            <div class="divregistroempresa" style="display:none">
                 <div class="col-md-12">
                     <div class="col-md-3">
                         <span><label><b>Registrar empresa</b></label></span>
@@ -151,26 +153,35 @@
 
             </div>
 
-            <div class="divregistrousersuperadmin" style="display:none">
+            <div class="divregistrousersuperadmin" style="display:block">
                 <div class="col-md-12">
                     <br />
                     <div class="col-md-3"></div>
                     <div class="col-md-9">
                         <span><label><b>Nombre administrador: </b></label></span>
-                        <input type="text" class="form-control" id="txtuseradmin" />
+                        <input type="text" class="form-control" id="txtuseradmin" placeholder="Ingrese el nombre" required />
                     </div>
+
                 </div>
 
                 <div class="col-md-12">
                     <br />
                     <div class="col-md-3"></div>
-                    <div class="col-md-4">
-                        <span><label><b>Contraseña: </b></label></span>
-                        <input type="text" class="form-control" id="txtcontrasena" />
+                    <div class="col-md-3">
+                        <span><label><b>Usuario: </b></label></span>
+                        <input type="text" class="form-control" id="txtusuario" placeholder="Ingrese el usuario" required />
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                        <span><label><b>Contraseña: </b></label></span>
+                        <input type="password" class="form-control" id="txtcontrasena" placeholder="Ingrese la contraseña" required />
+                        <div class="show-eye"><i class="fa fa-eye" id="faeye"></i></div>
+                        <div class="show-eye-slash"><i class="fa fa-eye-slash" id="faeyeslash"></i></div>
+                    </div>
+                    <div class="col-md-3">
                         <span><label><b>Confirmar contraseña: </b></label></span>
-                        <input type="text" class="form-control" id="txtconfirmarcontrasena" />
+                        <input type="password" class="form-control" id="txtconfirmarcontrasena" placeholder="Confirme la contraseña" required />
+                        <div class="show-eye-confir"><i class="fa fa-eye" id="faeyeconfir"></i></div>
+                        <div class="show-eye-slash-confir"><i class="fa fa-eye-slash" id="faeyeslashconfir"></i></div>
                     </div>
                 </div>
 
@@ -189,8 +200,25 @@
                     <div class="col-md-2">
                         <button type="button" class="btn btn-default" id="btncancelar">
                             <img src="~/Content/img/imagenes/salvar.png" />
-                        Registrar</button>
+                            Registrar
+                        </button>
                     </div>
+                </div>
+
+                <div class="col-md-12">
+                    <br />
+                    <div class="col-md-3">
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <label><b>Requisitos de la contraseña:</b></label> <br />
+                        &nbsp;&nbsp;<span>- Debe tener una mayúscula.</span> <br />
+                        &nbsp;&nbsp;<span>- Debe tener una minúscula.</span><br />
+                        &nbsp;&nbsp;<span>- Debe tener un caracter especial.</span><br />
+                        &nbsp;&nbsp;<span>- Debe tener como mínimo 8 carácteres.</span><br />
+                    </div>
+                    
                 </div>
 
             </div>
@@ -203,3 +231,4 @@
 <script type="text/javascript" src="~/Scripts/app/registroempresa.js"></script>
 <script type="text/javascript" src="~/Scripts/js/validaciones.js"></script>
 <script type="text/javascript" src="~/Scripts/js/global.js"></script>
+<script type="text/javascript" src="~/Scripts/js/validacionPassword.js"></script>
