@@ -66,11 +66,11 @@ $("#btnsiguiente").click(function () {
         paramss.razonSocial = razonsocial;
         paramss.ruc = ruc;
         paramss.email = email;
-
         Post("RegistroEmpresa/validarRegistro", paramss).done(function (datos) {
             if (datos.dt.response == "Ok") {
                 $(".divregistroempresa").hide();
                 $(".divregistrousersuperadmin").show();
+                document.getElementById("btnregistrar").disabled = true;
             }
             else {
                 //Visualización para mensaje de Error.
