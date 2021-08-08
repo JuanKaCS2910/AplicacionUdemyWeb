@@ -45,5 +45,20 @@ namespace AplicacionUdemy.Business
             }
         }
 
+        public ResponseRegistroEmpresa insertarUserAdminEmpresa(RegistroEmpresaDTOEntity _entidad, string valor)
+        {
+            try
+            {
+                return JsonConvert.DeserializeObject<ResponseRegistroEmpresa>(_client.Post<RegistroEmpresaDTOEntity>("RegistroEmpresa/insertarUserAdminEmpresa", _entidad, valor));
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        
+
     }
 }

@@ -332,7 +332,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="ScriptBD\Script_CreacionDB_Paises.sql" />
-    <Content Include="ScriptBD\Script_Creacion_Empresa.sql" />
     <Content Include="ScriptBD\Script_Creacion_Impuestos_Porcentajes.sql" />
     <Content Include="ScriptBD\Script_Creacion_Monedas.sql" />
     <Content Include="Scripts\app\registroempresa.js" />

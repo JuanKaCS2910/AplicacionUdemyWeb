@@ -81,6 +81,22 @@ namespace AplicacionUdemy.Controllers
 
                 string token = "";
                 var rpt = _empresaBusiness.insertarEmpresa(paramss, token);
+
+                if (rpt.response == "Ok")
+                {
+                    rpt = _empresaBusiness.insertarUserAdminEmpresa(paramss, token);
+
+                    if (rpt.response == "Ok")
+                    {
+                        return Json(new { dt = rpt });
+                        //Envio de correo electrónico.
+                    }
+                }
+                else
+                {
+                    return Json(new { dt = rpt });
+                }
+
                 return Json(new { dt = rpt});
             }
             catch (Exception ex)
