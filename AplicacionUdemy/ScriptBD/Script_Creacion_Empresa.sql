@@ -11,6 +11,7 @@ CREATE TABLE Empresa
 	IdporImpuesto			INT,
 	Direccion				VARCHAR(MAX),
 	Imagen					VARCHAR(MAX),
+	Proyecto				NCHAR(30),
 	Status					INT,
 	FechaRegistro			Datetime,
 	UsuarioCreacion			VARCHAR(50),
@@ -72,5 +73,73 @@ BEGIN
 	
 
 	--Select IdEmpresa, RazonSocial from Empresa
+END
+GO
+
+/*-------------------------------------------------------------*/
+/*---Comentario: Insertar las Empresas.------------------------*/
+/*---Ejecución: 
+	EXEC Usp_insertarEmpresaa '','',''			-----*/
+/*-------------------------------------------------------------*/
+CREATE PROCEDURE Usp_insertarEmpresa
+(
+@razonSocial		nchar(200),
+@ruc				nchar(200),
+@email				nchar(200),
+@idpais				int,
+@idmoneda			int,
+@vendeimpuesto		int,
+@idimpuesto			int,
+@idporcentaje		int,
+@direccion			VARCHAR(MAX),		
+@filename			VARCHAR(MAX),
+@proyecto			nchar(30)
+)
+AS
+BEGIN
+	IF NOT EXISTS(SELECT * FROM Empresa where RUC = @ruc)
+		BEGIN 
+
+		    INSERT INTO EMPRESA (
+					RazonSocial
+					,RUC
+					,Email
+					,IdPais
+					,IdMoneda
+					,VendeConImpuesto
+					,TipoImpuesto
+					,IdporImpuesto
+					,Direccion
+					,Imagen
+					,Proyecto
+					,Status
+					,FechaRegistro
+					,UsuarioCreacion
+					,FechaCreacion
+					) 
+			VALUES (@razonSocial,
+					@ruc,
+					@email,
+					@idpais,
+					@idmoneda,
+					@vendeimpuesto,
+					@idimpuesto,
+					@idporcentaje,
+					@direccion,	
+					@filename,
+					@proyecto,
+					1,
+					GETDATE(),
+					'PROCESO',
+					GETDATE())
+
+			SELECT 'Ok' response
+			
+		END
+	ELSE
+		BEGIN 
+			SELECT 'La empresa ya se encuentra registrada' response
+		END
+	
 END
 GO

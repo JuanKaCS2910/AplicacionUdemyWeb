@@ -204,8 +204,6 @@
     <Content Include="Content\img\imagenes\Vent.png" />
     <Content Include="Content\img\imagenes\ventas1.png" />
     <Content Include="Content\img\imagenes\xls.png" />
-    <Content Include="Content\img\img_empresas\10461793784\LOGO CNTI 1.png" />
-    <Content Include="Content\img\img_empresas\10461793784\LOGO CNTI 2.png" />
     <Content Include="Content\img\img_logo\Error500.gif" />
     <Content Include="Content\img\img_logo\fondo.jpg" />
     <Content Include="Content\img\img_logo\fondo_login.jpg" />
@@ -334,6 +332,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="ScriptBD\Script_CreacionDB_Paises.sql" />
+    <Content Include="ScriptBD\Script_Creacion_Empresa.sql" />
     <Content Include="ScriptBD\Script_Creacion_Impuestos_Porcentajes.sql" />
     <Content Include="ScriptBD\Script_Creacion_Monedas.sql" />
     <Content Include="Scripts\app\registroempresa.js" />
@@ -355,6 +354,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\img\img_empresas\" />
     <Folder Include="Content\plugins\Validarcontraseñas\js\" />
   </ItemGroup>
   <ItemGroup>

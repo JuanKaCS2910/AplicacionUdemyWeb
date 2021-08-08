@@ -1,9 +1,13 @@
 ﻿using AplicacionUdemy.Business;
+using AplicacionUdemy.Entity.Encrypt;
 using AplicacionUdemy.Entity.Parametros;
 using AplicacionUdemy.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Security;
+using System.Runtime.CompilerServices;
 using System.Web;
 using System.Web.Mvc;
 
@@ -47,6 +51,43 @@ namespace AplicacionUdemy.Controllers
             return Json(new { dt = respuesta });
         }
 
+        [HttpPost]
+        public ActionResult insertarEmpresa(HttpPostedFileBase file, RegistroEmpresaEntityParams oData) 
+        {
+            try
+            {
+                var clave = Encrypt.GetSHA256(oData.contrasena);
+                var filename = "";
+                if (file != null)
+                {
+                    string path = Server.MapPath("~/Content/img/img_empresas/"+ oData.ruc + "/");
+                    string filePath = string.Empty;
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
 
+                    filePath = path + Path.GetFileName(file.FileName);
+                    file.SaveAs(filePath);
+                    filename = file.FileName;
+                }
+
+                var paramss = new RegistroEmpresaDTOEntity();
+                paramss.paramsEmpresa = oData;
+                paramss.cantUser = 1;
+                paramss.cargo = "superadmin";
+                paramss.filename = filename;
+                paramss.proyecto = "FACTUR";
+
+                string token = "";
+                var rpt = _empresaBusiness.insertarEmpresa(paramss, token);
+                return Json(new { dt = rpt});
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
