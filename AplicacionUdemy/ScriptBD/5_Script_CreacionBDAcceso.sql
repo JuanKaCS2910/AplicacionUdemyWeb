@@ -97,7 +97,7 @@ SELECT @FechaFIN = DATEADD(DAY,16,GETDATE())
 END
 GO
 
-CREATE PROCEDURE Usp_activarCuenta
+ALTER PROCEDURE Usp_activarCuenta
 -------------------------------------*/
 /*---Comentario: Activar Cuenta.---*/
 /*---Ejecución: 
@@ -112,7 +112,7 @@ DECLARE @FechaFIN DATETIME
 
 SELECT @FechaFIN = DATEADD(DAY,16,GETDATE())
 
-IF NOT EXISTS(SELECT * FROM LICENCIAS WHERE RUC = @ruc AND Validar_Email = 0)
+IF EXISTS(SELECT * FROM LICENCIAS WHERE RUC = @ruc AND Validar_Email = 0)
 	BEGIN
 		UPDATE LICENCIAS 
 		   SET Validar_Email = 1, STATUS = 1, 

@@ -228,3 +228,12 @@ $("#btnregistrar").on("click", function () {
 
     
 });
+
+$("#btncancelar").on("click", function () {
+    window.location = fnBaseURLWeb("Home/Index");
+});
+
+$("#btnatras").on("click", function () {
+    $(".divregistroempresa").show();
+    $(".divregistrousersuperadmin").hide();
+});
