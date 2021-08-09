@@ -58,7 +58,20 @@ namespace AplicacionUdemy.Business
             }
         }
 
-        
+        public ResponseRegistroEmpresa activarCuenta(string ruc, string valor)
+        {
+            try
+            {
+                return _client.Get<ResponseRegistroEmpresa>(string.Format("RegistroEmpresa/activarCuenta?ruc={0}", ruc, valor));
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+
 
     }
 }

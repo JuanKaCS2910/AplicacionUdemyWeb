@@ -96,3 +96,43 @@ SELECT @FechaFIN = DATEADD(DAY,16,GETDATE())
 		END
 END
 GO
+
+CREATE PROCEDURE Usp_activarCuenta
+-------------------------------------*/
+/*---Comentario: Activar Cuenta.---*/
+/*---Ejecución: 
+	EXEC Usp_activarCuenta			---*/
+(
+@ruc				NCHAR(20)
+)
+AS
+BEGIN
+
+DECLARE @FechaFIN DATETIME
+
+SELECT @FechaFIN = DATEADD(DAY,16,GETDATE())
+
+IF NOT EXISTS(SELECT * FROM LICENCIAS WHERE RUC = @ruc AND Validar_Email = 0)
+	BEGIN
+		UPDATE LICENCIAS 
+		   SET Validar_Email = 1, STATUS = 1, 
+		       Fecha_Fin = @FechaFIN,
+			   FechaModificacion = GETDATE(), 
+			   UsuarioModificacion = 'PROCESO'
+		  WHERE RUC = @ruc AND Validar_Email = 0
+
+		UPDATE USUARIOS_FACTUR 
+		   SET Status = 1,
+			   FechaModificacion = GETDATE(), 
+			   UsuarioModificacion = 'PROCESO'
+		  WHERE RUC = @ruc AND STATUS = 0
+
+		  SELECT 'CUENTA ACTIVADA CORRECTAMENTE' response
+	END
+ELSE
+	BEGIN
+		SELECT 'LA CUENTA YA ESTÁ ACTIVADA' response
+	END
+
+END
+GO
