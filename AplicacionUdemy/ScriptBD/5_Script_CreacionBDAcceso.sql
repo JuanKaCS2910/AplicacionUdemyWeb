@@ -41,6 +41,8 @@ CREATE TABLE Licencias
 	FechaModificacion		Datetime NULL
 )
 GO
+--TRUNCATE TABLE Licencias
+--TRUNCATE TABLE Usuarios_Factur
 --SELECT * FROM Licencias
 
 CREATE PROCEDURE Usp_insertarUserAdminEmpresa

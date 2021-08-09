@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Net.Security;
 using System.Runtime.CompilerServices;
 using System.Web;
@@ -57,6 +59,8 @@ namespace AplicacionUdemy.Controllers
             try
             {
                 var clave = Encrypt.GetSHA256(oData.contrasena);
+                var clave_sinencriptar = oData.contrasena;
+                oData.contrasena = clave;
                 var filename = "";
                 if (file != null)
                 {
@@ -88,8 +92,10 @@ namespace AplicacionUdemy.Controllers
 
                     if (rpt.response == "Ok")
                     {
-                        return Json(new { dt = rpt });
                         //Envio de correo electrónico.
+                        var _resultado = EnvioCorreo(paramss, clave_sinencriptar);
+
+                        return Json(new { dt = rpt });
                     }
                 }
                 else
@@ -105,5 +111,41 @@ namespace AplicacionUdemy.Controllers
                 throw ex;
             }
         }
+
+        public bool EnvioCorreo(RegistroEmpresaDTOEntity oData, string encriptar)
+        {
+            bool resultado = false;
+
+            string url = string.Format("https://localhost:44354/ActivarCuenta/ActivarCuenta?ruc=" + oData.paramsEmpresa.ruc);
+            string para = oData.paramsEmpresa.email;
+            string asunto = "Activación de cuenta | Sistema de Facturación e Inventario";
+            string mensaje = "<b> GRACIAS POR REGISTRARSE </b> <br /><br />" + "Estas son sus credenciales de acceso" + "<br /><br />" +
+                "Usuario: " + oData.paramsEmpresa.usuario + "<br />" +
+                "Contraseña: " + encriptar + "<br />" +
+                "Cargo: " + oData.cargo + "<br /><br />" +
+                "Para poder acceder al sistema debe primero activar la cuenta. Activela aquí <a href=\"" + url + "\"> aquí </a>" + "<br /><br />" +
+                "Recuerde esto es un periodo de pruega por 15 días, para obtener una licencia escribenos al correo juan.castro.socla@gmail.com";
+
+            MailMessage correo = new MailMessage();
+            correo.From = new MailAddress("systemafactur@cnti365.com"); // cambiar el correo por el de ustedes
+            correo.To.Add(para);
+            correo.Subject = asunto;
+            correo.Body = mensaje;
+            correo.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient("mail.cnti365.com");// cambiar por su smtpHost.
+            string scuentaCorreo = "systemafactur@cnti365.com"; // cambiar el correo por el de ustedes
+            string sPassword = "M@46179378s";// cambiar el correo por el de ustedes.
+
+            NetworkCredential credential = new NetworkCredential(scuentaCorreo, sPassword);
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = credential;
+            smtp.Port = 25;
+            smtp.EnableSsl = false;
+            smtp.Send(correo);
+            resultado = true;
+
+            return resultado;
+        }
+
     }
 }

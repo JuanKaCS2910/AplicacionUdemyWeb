@@ -13,6 +13,7 @@ namespace AplicacionUdemy.Models
         public List<ResponseMoneda> listMoneda { get; set; }
         public List<ResponseImpuesto> listImpuesto { get; set; }
         public List<ResponsePorcentaje> listPorcentaje { get; set; }
+        public ResponseRegistroEmpresa msjActivarCuenta { get; set; }
 
     }
 }

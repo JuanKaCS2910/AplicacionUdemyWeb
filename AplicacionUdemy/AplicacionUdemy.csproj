@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ActivarCuentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegistroEmpresaController.cs" />
     <Compile Include="Global.asax.cs">
@@ -363,6 +364,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
     <Content Include="Views\RegistroEmpresa\RegistroEmpresa.cshtml" />
+    <Content Include="Views\ActivarCuenta\ActivarCuenta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AplicacionUdemy.Business\AplicacionUdemy.Business.csproj">
